@@ -1,7 +1,7 @@
 # proxylite
 
 ### lets create a build config using our lite HA Proxy
-oc new-build https://github.com/futureops/docker-proxy --name proxylite
+oc new-build https://github.com/futureops/proxylite --name proxylite
 
 ### lets make a deployment using this new bc/is
 oc new-app --image-stream=proxylite -e BACKEND_HOST=infadev -e BACKEND_PORT=7011 --name infadev7011
