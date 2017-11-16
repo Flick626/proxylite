@@ -11,3 +11,8 @@ oc expose dc/infadev7011 --port=80
 
 ### because we're security concious, we can deploy a path-based route using TLS to expose our proxy service
 oc create route edge infadev7011 --service=infadev7011 --path /
+
+### we also may wish to autoscale based on CPU
+oc autoscale dc/infadev7011 --min=2 --max=10 --cpu-percent=80
+
+NOTE: autoscaling is dependent on CPU request limits. On DMP you will inherit these from your quota settings, however outside of DMP you will need to manually specify these at point of deployment.
